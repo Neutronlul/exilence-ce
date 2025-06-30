@@ -4,8 +4,6 @@ import makeStyles from '@mui/styles/makeStyles';
 import { primaryLighter } from '../../assets/themes/exilence-theme';
 import { resizeHandleContainerHeight, toolbarHeight } from './Header';
 
-export const kofiLogoHeight = 21;
-
 const useStyles = makeStyles((theme) =>
   createStyles({
     header: {
@@ -28,15 +26,6 @@ const useStyles = makeStyles((theme) =>
     updateAvailable: {
       flexGrow: 1,
       color: '#20cc76',
-    },
-    kofiWrapper: {
-      background: '#fff',
-      marginRight: theme.spacing(1),
-      marginLeft: theme.spacing(1),
-      padding: '1px 3px',
-    },
-    kofiLogo: {
-      height: kofiLogoHeight,
     },
     toolbar: {
       minHeight: toolbarHeight,

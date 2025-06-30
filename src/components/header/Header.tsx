@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppBar, Box, Link, Toolbar } from '@mui/material';
+import { AppBar, Link, Toolbar } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
@@ -10,8 +10,7 @@ import MinimizeIcon from '@mui/icons-material/Minimize';
 import HelpIcon from '@mui/icons-material/HelpOutline';
 import clsx from 'clsx';
 import { observer } from 'mobx-react-lite';
-//import kofiLogo from '../../assets/img/kofi_button_stroke.webp';
-import { close, maximize, minimize, openLink, unmaximize } from '../../utils/window.utils';
+import { close, maximize, minimize, unmaximize } from '../../utils/window.utils';
 import SupportPanel from '../support-panel/SupportPanel';
 import useStyles from './Header.styles';
 
@@ -82,18 +81,6 @@ const Header = ({
           </Grid>
           <Grid item>
             <Grid container alignItems="center">
-              {/* <Grid item className={clsx(classes.noDrag)}>
-                <a href="https://ko-fi.com/ExilenceCE" onClick={(e) => openLink(e)}>
-                  <Box
-                    display="flex"
-                    alignItems="center"
-                    height={1}
-                    className={classes.kofiWrapper}
-                  >
-                    <img className={classes.kofiLogo} src={kofiLogo} alt="Ko-fi" />
-                  </Box>
-                </a>
-              </Grid> */}
               <Grid
                 item
                 className={clsx(
