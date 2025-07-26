@@ -6,6 +6,7 @@ import {
   itemLinks,
   itemName,
   itemQuantity,
+  itemQuantityPerDivine,
   itemTabs,
   itemValue,
   sparkLine,
@@ -63,6 +64,9 @@ const itemTableColumns: Column<object>[] = [
   itemValue({
     accessor: 'total',
     header: 'Total value',
+  }),
+  itemQuantityPerDivine({
+    header: 'Quantity per divine',
   }),
   itemValue({
     header: 'Cumulative',

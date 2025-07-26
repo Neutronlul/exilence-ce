@@ -17,7 +17,7 @@ import { formatSparklineChartData, getRawPriceFromPricedItem } from '../../utils
 import { openCustomLink } from '../../utils/window.utils';
 import SparklineChart from '../sparkline-chart/SparklineChart';
 import useStyles from './Columns.styles';
-import { currencyConversion } from '../../utils/unitconversion';
+import { currencyConversion, getChaosToDivine } from '../../utils/unitconversion';
 
 export function itemIcon(options: { accessor: string; header: string }): Column<object> {
   const { header, accessor } = options;
@@ -223,6 +223,23 @@ export function itemValue(options: {
           diff={diff}
         />
       );
+    },
+  };
+}
+
+export function itemQuantityPerDivine(options: { header: string }): Column<object> {
+  const { header } = options;
+  return {
+    Header: header,
+    align: 'right',
+    sortType: 'basic',
+    // eslint-disable-next-line react/display-name
+    Cell: (data: any) => {
+      const value = parseFloat(
+        (getChaosToDivine() / (data.row.values.calculated * 0.8)).toFixed(2)
+      );
+      //console.log(data.row.values['calculated']);
+      return <ItemQuantityPerDivineCell value={value} />;
     },
   };
 }
@@ -504,3 +521,14 @@ const SparklineCell = ({ sparkline, id }: SparklineCellProps) => {
     </>
   );
 };
+
+type itemQuantityPerDivineCellProps = {
+  value: number;
+};
+
+const ItemQuantityPerDivineCellComponent = ({ value }: itemQuantityPerDivineCellProps) => {
+  // console.log('ItemQuantityPerDivineCell: ', value);
+  return <span>{value}</span>;
+};
+
+const ItemQuantityPerDivineCell = observer(ItemQuantityPerDivineCellComponent);
